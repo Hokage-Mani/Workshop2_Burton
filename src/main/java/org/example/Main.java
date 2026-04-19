@@ -55,13 +55,31 @@ public class Main {
                     if (iD[i] != null){
                         if(iD[i].isCheckedOut() == false){
                             System.out.println("ID: " + i + " | Title: " + iD[i].getTitle());
+
                         }
+
                     }else if(userInput ==2){
                         //for showing checked out books later
+                        System.out.println("\n--- Checked Out Books ---");
+                        if(iD[i].isCheckedOut() == true){
+                            System.out.println("ID: " + i + "is already checked out.");
+                        }
+
                     }
                 }
 
             }
+//            System.out.println("Enter the ID of the book you want: ");
+//                int chosenId = scanner.nextInt();
+//
+//            System.out.println("Enter your name: ");
+//            String userName = scanner.next();
+//            iD[chosenId].setCheckedOut(true);
+//            //For the next line I chose what IntellaJ recommended when I intially tried to make it (userName).
+//            iD[chosenId].setName(userName);
+//            System.out.println("Enjoy reading! " + iD[chosenId].getTitle() + " has been checked out by " + userName);
+
+
 
 
             //if(iD = 0)
