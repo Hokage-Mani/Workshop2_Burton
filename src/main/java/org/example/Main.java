@@ -49,50 +49,72 @@ public class Main {
 
 
             int userInput = scanner.nextInt();
-            if (userInput == 1){
+
+            if (userInput == 1) {
                 System.out.println("\n--- Available Books ---");
-                for(int i = 0; i < iD.length; i++){
-                    if (iD[i] != null){
-                        if(iD[i].isCheckedOut() == false){
+
+                for(int i = 0; i < iD.length; i++) {
+                    if (iD[i] != null) {
+                        if(iD[i].isCheckedOut() == false) {
                             System.out.println("ID: " + i + " | Title: " + iD[i].getTitle());
-
                         }
-
-                    }else if(userInput ==2){
-                        //for showing checked out books later
-                        System.out.println("\n--- Checked Out Books ---");
-                        if(iD[i].isCheckedOut() == true){
-                            System.out.println("ID: " + i + "is already checked out.");
-                        }
-
                     }
                 }
 
+                System.out.print("Enter the ID of the book you want: ");
+                int chosenId = scanner.nextInt();
+
+                System.out.print("Enter your name: ");
+                String userName = scanner.next();
+
+                iD[chosenId].setCheckedOut(true);
+                iD[chosenId].setName(userName);
+                System.out.println("Enjoy reading! " + iD[chosenId].getTitle() + " has been checked out by " + userName);
+
             }
-//            System.out.println("Enter the ID of the book you want: ");
-//                int chosenId = scanner.nextInt();
+
+            //Getting to showing checked out books and asking if they have a book to return
+
+            else if (userInput == 2) {
+                System.out.println("\n--- Checked Out Books ---");
+
+                for(int i = 0; i < iD.length; i++) {
+                    if (iD[i] != null) {
+                        if(iD[i].isCheckedOut() == true) {
+                            System.out.println("ID: " + i + " | Title: " + iD[i].getTitle() + " (Checked out by: " + iD[i].getName() + ")");
+                        }
+                    }
+                }
+
+
+                System.out.print("Enter the ID of the book you want to return: ");
+                int returnId = scanner.nextInt();
+
+                iD[returnId].setCheckedOut(false);
+                iD[returnId].setName(null);
+                System.out.println("Thank you! " + iD[returnId].getTitle() + " has been returned.");
+
+            }
+
+            else if (userInput == 3) {
+                System.out.println("Thank you for using the library system. Goodbye!");
+                System.exit(0);
+            }
+
+
+
+
+//            if(iD = 0)
+//            System.out.println("Available Books: " + );
 //
-//            System.out.println("Enter your name: ");
-//            String userName = scanner.next();
-//            iD[chosenId].setCheckedOut(true);
-//            //For the next line I chose what IntellaJ recommended when I intially tried to make it (userName).
-//            iD[chosenId].setName(userName);
-//            System.out.println("Enjoy reading! " + iD[chosenId].getTitle() + " has been checked out by " + userName);
-
-
-
-
-            //if(iD = 0)
-            //System.out.println("Available Books: " + );
-
-            //Now use if statements depending on what the person typed
-            //How many possibilities are there? Write your if statement structure first
-
-            //Loop through your array of books and use if statements
-            //Do we show all books? Only checked-in books?
-
-            //How do we exit the program?
-            //This command kills the program at whatever point its at.
+//            Now use if statements depending on what the person typed
+//            How many possibilities are there? Write your if statement structure first
+//
+//            Loop through your array of books and use if statements
+//            Do we show all books? Only checked-in books?
+//
+//            How do we exit the program?
+//            This command kills the program at whatever point its at.
             System.exit(0);
         }
     }
